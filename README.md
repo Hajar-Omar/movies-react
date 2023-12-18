@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Simple movies list page using [https://sampleapis.com/api-list/movies](sampleapis APIs) 
+
+![Movies List](https://i.ibb.co/5vhNtmZ/11.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
