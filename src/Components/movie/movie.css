@@ -1,7 +1,13 @@
-.w-25{
-width: 25%;
+.w-25 {
+  width: 25%;
 }
 
-.movie{
-    margin: 1rem;
+.movie {
+  margin: 1rem;
+}
+h2 {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

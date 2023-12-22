@@ -31,3 +31,6 @@ img{
 .justify-content-center{
   justify-content: center;
 }
+a{
+  cursor: pointer;
+}

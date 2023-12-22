@@ -13,6 +13,11 @@ button:hover {
   background-color: #ddd;
 }
 
+button.active {
+  color: white;
+  background-color: #6899a7;
+}
+
 .movies {
   padding: 2rem 5rem;
 }

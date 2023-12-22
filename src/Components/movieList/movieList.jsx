@@ -20,9 +20,9 @@ const MovieList = () => {
 
   return (
     <>
-      <h1>Movies List</h1>
       {types.map((t, i) => (
         <button
+        className={t.name === type ? "active": ""}
           key={i}
           onClick={() => {
             setType(t.name);
