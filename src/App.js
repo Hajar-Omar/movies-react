@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import MovieList from "./Components/movieList/movieList";
-import Details from "./Components/details/details";
-import Layout from "./Components/layout/layout";
+import MovieList from "./pages/movieList/movieList";
+import Details from "./pages/details/details";
+import Layout from "./pages/layout/layout";
 
 function App() {
   return (

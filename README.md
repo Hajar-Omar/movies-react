@@ -1,10 +1,44 @@
-# Getting Started with Create React App
+# Movie List App
+
+This is a simple React app that fetches movie data from an API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Simple movies list page using [sampleapis APIs](https://sampleapis.com/api-list/movies)
 
 ![Movies List](https://i.ibb.co/5vhNtmZ/11.png)
+
+## Getting Started
+
+To get started, clone the repository and install the dependencies:
+
+```
+git clone https://github.com/Hajar-Omar/movies-react
+cd movies
+npm install
+```
+
+Once the dependencies are installed, you can start the development server:
+
+```
+npm start
+```
+
+The app will be available at http://localhost:3000.
+
+## Code Overview
+
+The app consists of the following components:
+
+* `MovieList`: This is the main component of the app. It fetches the movie data from the API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
+* `Movie`: This component displays a single movie.
+* `Pagination`: This component displays the pagination controls.
+
+## Pages
+### `MovieList`:
+
+The `MovieList` component is the main component of the app. It fetches the movie data from the API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
+
 
 ## Available Scripts
 

@@ -1,14 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import "./movie.css";
+import { useContext } from "react";
+import { TypeContext } from "../../shared/context";
 
 const Movie = ({ movie }) => {
   const defaultImgSrc = "https://placehold.co/400x600";
+  const navigate = useNavigate();
+  const type = useContext(TypeContext);
 
   const addToCart = (movie) => {
     console.log(movie);
   };
 
+  const handleNaviagte = (id) => {
+    navigate(`/details/${"com"}/${id}`);
+  };
+
   return (
-    <div className="movie w-25 d-flex flex-column justify-content-between">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column justify-content-between px-3 my-3">
       <div>
         <h2>{movie.title}</h2>
         <img
@@ -19,15 +28,11 @@ const Movie = ({ movie }) => {
           }}
           alt={movie.posterURL}
           title={movie.title}
+          onClick={() => handleNaviagte(movie.imdbId)}
         />
+        <span className="">{type}</span>
       </div>
-      <button
-        onClick={() => {
-          addToCart(movie);
-        }}
-      >
-        Add to Cart
-      </button>
+      <button onClick={() => addToCart(movie)}>Add to Favourite</button>
     </div>
   );
 };
