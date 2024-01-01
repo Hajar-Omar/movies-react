@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "./movie.css";
 import { useSelector } from "react-redux";
+import store from '../../+state/store'
+import { selectedMovieChanged } from "../../+state/actions";
 //import { useContext } from "react";
 //import { TypeContext } from "../../shared/context";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, cols= 'col-md-6 col-lg-4 col-xl-3' }) => {
   const defaultImgSrc = "https://placehold.co/400x600";
   const navigate = useNavigate();
   //const type = useContext(TypeContext);
@@ -17,11 +19,12 @@ const Movie = ({ movie }) => {
   };
 
   const handleNaviagte = (id) => {
-    navigate(`/details/${"com"}/${id}`);
+    store.dispatch(selectedMovieChanged(movie))
+    navigate(`/details/${currentMoviesType}/${id}`);
   };
 
   return (
-    <div className="col-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column justify-content-between px-3 my-3">
+    <div className={`col-12 ${cols} d-flex flex-column justify-content-between px-3 my-3`}>
       <div>
         <h2>{movie.title}</h2>
         <img
