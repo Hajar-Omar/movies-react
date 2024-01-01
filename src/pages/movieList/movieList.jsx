@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
-import Movie from "../movie/movie";
+import Movie from "../../components/movie/movie";
+import MovieType from "../../components/movieTypes/movieType";
 import "./movieList.css";
-import { Types } from "./data";
 import Pagination from "../../components/pagination/pagination";
-import {TypeContext} from '../../shared/context'
+import { useSelector } from "react-redux";
+//import { TypeContext } from "../../shared/context";
 
 const MovieList = () => {
   // readonly
-  const types = Types;
   const itemsPerPage = 10;
 
   // states
   const [movies, setMovies] = useState([]);
-  const [type, setType] = useState(types[0].name);
   const [search, setSearch] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  //const [type, setType] = useState("comedy"); // types[0].name
+
+  // selectors
+  const currentMoviesType = useSelector((state) => state.moviesType); // Accessing current Redux state, instead of store.getState().moviesType
 
   // vars
   const end = currentPage * itemsPerPage; // all depending on states, so will be updating whenever state does change
@@ -24,8 +27,13 @@ const MovieList = () => {
 
   // effects
   useEffect(() => {
-    loadMovies();
-  }, [type]);
+    loadMovies(); // load in first load
+
+    // update at every change, REPLACED BY useSelector as dependency
+    // store.subscribe(() => {
+    //   loadMovies();
+    // });
+  }, [currentMoviesType]);
 
   useEffect(() => {
     setFilteredMovies(
@@ -36,7 +44,9 @@ const MovieList = () => {
 
   // methods
   const loadMovies = async () => {
-    await fetch(`https://api.sampleapis.com/movies/${type}`)
+    await fetch(
+      `https://api.sampleapis.com/movies/${currentMoviesType}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // const data = await res.json();
@@ -51,16 +61,8 @@ const MovieList = () => {
 
   return (
     <>
-    <TypeContext.Provider value={type}>
-      {types.map((t, i) => (
-        <button
-          className={t.name === type ? "active" : ""}
-          key={i}
-          onClick={() => setType(t.name)}
-        >
-          {t.name}
-        </button>
-      ))}
+      {/* <TypeContext.Provider value={type}> */}
+      <MovieType />
       <div className="container">
         <input
           className="form-control form-control my-5"
@@ -85,7 +87,7 @@ const MovieList = () => {
           currentPage={currentPage}
         />
       </div>
-      </TypeContext.Provider>
+      {/* </TypeContext.Provider> */}
     </>
   );
 };

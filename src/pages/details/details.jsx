@@ -5,7 +5,7 @@ const Details = () => {
 
   return (
     <h1>
-      Deatails: {id} - {type}
+      Details: {id} - {type}
     </h1>
   );
 };

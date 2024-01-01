@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import "./movie.css";
-import { useContext } from "react";
-import { TypeContext } from "../../shared/context";
+import { useSelector } from "react-redux";
+//import { useContext } from "react";
+//import { TypeContext } from "../../shared/context";
 
 const Movie = ({ movie }) => {
   const defaultImgSrc = "https://placehold.co/400x600";
   const navigate = useNavigate();
-  const type = useContext(TypeContext);
+  //const type = useContext(TypeContext);
+
+  // selectors
+  const currentMoviesType = useSelector((state) => state.moviesType); // Accessing current Redux state, instead of store.getState().moviesType
 
   const addToCart = (movie) => {
     console.log(movie);
@@ -30,7 +34,7 @@ const Movie = ({ movie }) => {
           title={movie.title}
           onClick={() => handleNaviagte(movie.imdbId)}
         />
-        <span className="">{type}</span>
+        <span className="">{currentMoviesType}</span>
       </div>
       <button onClick={() => addToCart(movie)}>Add to Favourite</button>
     </div>
