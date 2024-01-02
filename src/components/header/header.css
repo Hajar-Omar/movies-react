@@ -1,3 +1,17 @@
-header{
-    padding: 1rem 5rem;
+header {
+  padding: 1rem 5rem;
+}
+
+h1 {
+  font-size: 55px !important;
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 214, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: 700 !important;
 }
