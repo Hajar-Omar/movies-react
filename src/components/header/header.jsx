@@ -8,7 +8,7 @@ const Header = () => {
     <header className="d-flex justify-content-between align-items-center">
       <div className="d-flex align-items-center">
         <h1 className="mb-0">
-          <Link to="/dashboard">FUN</Link>
+          <Link to="/dashboard">FUN Zone</Link>
         </h1>
         <Link aria-current="page" to="/prefrences">
           <img
