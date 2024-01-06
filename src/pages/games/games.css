@@ -1,0 +1,4 @@
+.custom-row.row > div{
+    display: flex;
+    flex-wrap: wrap;
+}

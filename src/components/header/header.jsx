@@ -56,7 +56,7 @@ const Header = () => {
                   as={Link}
                   className="nav-link"
                   aria-current="page"
-                  to="/games?xbox"
+                  to="/games?type=xbox"
                 >
                   XBox
                 </Dropdown.Item>
@@ -64,7 +64,7 @@ const Header = () => {
                   as={Link}
                   className="nav-link"
                   aria-current="page"
-                  to="/games?switch"
+                  to="/games?type=switch"
                 >
                   Switch games
                 </Dropdown.Item>
@@ -72,7 +72,7 @@ const Header = () => {
                   as={Link}
                   className="nav-link"
                   aria-current="page"
-                  to="/games?payStation"
+                  to="/games?type=playstation"
                 >
                   Play Station
                 </Dropdown.Item>

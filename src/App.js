@@ -3,9 +3,9 @@ import "./App.css";
 import MovieList from "./pages/movieList/movieList";
 import Details from "./pages/details/details";
 import Layout from "./pages/layout/layout";
-import Dashboard from "./pages/dashboard/dashboard";
-import Games from "./pages/games/games";
-import Coding from "./pages/coding/coding";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Games from "./pages/games/Games";
+import Coding from "./pages/coding/Coding";
 import Jokes from "./pages/jokes/jokes";
 import Prefrences from "./pages/prefrences/prefrences";
 

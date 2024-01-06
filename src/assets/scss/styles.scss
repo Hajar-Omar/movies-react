@@ -1,2 +1,6 @@
 //@import '~bootstrap/scss/bootstrap.scss';
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.badge {
+  white-space: normal;
+}

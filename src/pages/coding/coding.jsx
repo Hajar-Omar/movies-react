@@ -1,9 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 function Coding() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    const req = await fetch(
+      `https://api.sampleapis.com/codingresources/codingResources`
+    );
+    const data = await req.json();
+    setData(data);
+  };
+
   return (
-    <div>Coding</div>
-  )
+    <>
+      <h1 className="my-5">Learn How To Code</h1>
+      <div className="row d-flex mx-0">
+        {data.length &&
+          data.map((item) => (
+            <div key={item.id} className="col-12 col-md-6 col-lg-4 mb-3">
+              <div className="card h-100">
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  <img
+                    src="https://placehold.co/400/grey/white?font=lato&text=let's\ncode"
+                    className="card-img-top"
+                    alt="..."
+                  />
+                </a>
+                <div className="card-body">
+                  <h5 className="card-title mt-2">{item.description}</h5>
+                  <p className="card-text">
+                    Levels:{" "}
+                    <span class="badge text-bg-success">
+                      {item.levels.join(", ")}
+                    </span>
+                  </p>
+                  <p className="card-text">
+                    Topics:{" "}
+                    <span class="badge text-bg-warning">
+                      {item.topics.join(", ")}
+                    </span>
+                  </p>
+                  <div className="mb-4">
+                    {" "}
+                    <span class="badge text-bg-info">{item.types}</span>
+                  </div>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-outline-dark"
+                  >
+                    Go There
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
+    </>
+  );
 }
 
-export default Coding
+export default Coding;
