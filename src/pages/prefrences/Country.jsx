@@ -9,7 +9,7 @@ const Country = () => {
   const [value, setValue] = useState("");
   const [countries, setCountries] = useState([]);
   const [filterdCountries, setFilterdCountries] = useState([]);
-  const [selectedItem, setSelectedItem] = useState("");
+  const [selectedItem, setSelectedItem] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,15 +45,15 @@ const Country = () => {
 
   return (
     <>
-      {" "}
       {loading ? (
         <Spinner animation="grow" />
       ) : (
         <Card>
           <Card.Body>
             <Card.Title>
+              <label htmlFor="country">Select your country</label>
               <Dropdown>
-                <Dropdown.Toggle className="btn btn-light w-100">
+                <Dropdown.Toggle id="country" className="btn btn-light w-100">
                   {selectedItem.name ? (
                     <CountryItem item={selectedItem} />
                   ) : (
