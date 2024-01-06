@@ -4,3 +4,32 @@
 .badge {
   white-space: normal;
 }
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 0.4rem;
+
+  &-track {
+    background-color: white;
+    padding-inline: 0.25rem;
+    border: 1px solid #c7b9b9;
+  }
+
+  &-thumb {
+    background-color: #ff00d95f;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #ff00d7;
+    }
+
+    &:active {
+      background-color: #ff00d7;
+    }
+  }
+}
+
+.dropdown-menu {
+  max-height: 500px;
+  overflow-y: auto;
+}

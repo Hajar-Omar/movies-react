@@ -7,7 +7,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Games from "./pages/games/Games";
 import Coding from "./pages/coding/Coding";
 import Jokes from "./pages/jokes/Jokes";
-import Prefrences from "./pages/prefrences/prefrences";
+import Prefrences from "./pages/prefrences/Prefrences";
 
 function App() {
   return (
