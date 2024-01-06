@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroller";
 import "./games.css";
+import CustomSpinner from "../../components/spinner/Spinner"
 
 const Card = lazy(() => import("./Card"));
 
@@ -41,8 +42,8 @@ function Games() {
             loadMore={loadMore}
             hasMore={true || false}
             loader={
-              <div className="loader" key={0}>
-                Loading ...
+              <div className="loader text-center" key={0}>
+                <CustomSpinner />
               </div>
             }
           >
