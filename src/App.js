@@ -6,7 +6,7 @@ import Layout from "./pages/layout/layout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Games from "./pages/games/Games";
 import Coding from "./pages/coding/Coding";
-import Jokes from "./pages/jokes/jokes";
+import Jokes from "./pages/jokes/Jokes";
 import Prefrences from "./pages/prefrences/prefrences";
 
 function App() {
