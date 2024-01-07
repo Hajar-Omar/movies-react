@@ -41,36 +41,45 @@
   }
 }
 
-.img-top{
+.img-top {
   border-radius: 50%;
   border: 2px solid #ddd;
+}
+.box {
+  width: 30px;
+  height: 30px;
 }
 
 // forms
 .form-floating {
-  &> label {
+  & > label {
     padding: 0.5rem 0.75rem;
   }
-  & > .form-control{
+  & > .form-control {
     height: calc(2.5rem + var(--bs-border-width) * 2);
     min-height: calc(2.5rem + var(--bs-border-width) * 2);
- 
-    &:focus, &:not(:placeholder-shown){
-      & ~ label{
-      transform: scale(0.85) translateY(-1.5rem) translateX(0.15rem);
-      background-color: #fff;
-    }}
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      & ~ label {
+        transform: scale(0.85) translateY(-1.5rem) translateX(0.15rem);
+        background-color: #fff;
+      }
+    }
   }
-  & > .form-control-plaintext, & > .form-control{
+  & > .form-control-plaintext,
+  & > .form-control {
     padding: 1rem 0.75rem;
-    &:focus, &:not(:placeholder-shown){
+    &:focus,
+    &:not(:placeholder-shown) {
       padding-top: 0.8rem;
     }
   }
-  & > .form-control-plaintext, & > .form-select {
+  & > .form-control-plaintext,
+  & > .form-select {
     height: calc(2.5rem + var(--bs-border-width) * 2);
     min-height: calc(2.5rem + var(--bs-border-width) * 2);
-    ~ label{
+    ~ label {
       transform: scale(0.85) translateY(-1.5rem) translateX(0.15rem);
       background-color: #fff;
     }

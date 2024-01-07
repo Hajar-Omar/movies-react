@@ -6,6 +6,9 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Carousel from "react-bootstrap/Carousel";
 import ConfirmationModal from "../../components/modal/ConfirmationModal";
+import store from "../../+state/store";
+import { userChanged } from "../../+state/actions";
+import { useSelector } from "react-redux";
 
 function Coffee() {
   const [type, setType] = useState("hot");
@@ -13,14 +16,17 @@ function Coffee() {
   const [selectedItem, setSelectedItem] = useState({});
   const [loading, setLoading] = useState(true);
 
+  // selectors
+  const currentCoffee = useSelector((state) => state.user.coffee);
+
   // for confirmation modal
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => {
+  const handleCloseModal = () => setOpenModal(false);
+  const handleConfirm = () => {
     setOpenModal(false);
-    setSelectedItem({});
+    store.dispatch(userChanged({ coffee: selectedItem }));
   };
-  const handleConfirm = () => setOpenModal(false);
 
   useEffect(() => {
     loadData();
@@ -49,7 +55,15 @@ function Coffee() {
         <Card className="mb-3">
           <Card.Body>
             <Card.Title>
-              <ButtonGroup aria-label="Basic example">
+              {currentCoffee && currentCoffee.title ? (
+                <h5 className="mb-3">
+                  {" "}
+                  Your Favoirate Coffee is {currentCoffee.title}
+                </h5>
+              ) : (
+                ""
+              )}
+              <ButtonGroup aria-label="coffee" className="w-100">
                 <Button
                   active={type === "hot"}
                   variant="secondary"

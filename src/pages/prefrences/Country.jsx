@@ -4,6 +4,9 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import apiService from "../../services/apiService";
 import Spinner from "react-bootstrap/Spinner";
+import { useSelector } from "react-redux";
+import store from "../../+state/store";
+import { userChanged } from "../../+state/actions";
 
 const Country = () => {
   const [value, setValue] = useState("");
@@ -12,7 +15,11 @@ const Country = () => {
   const [selectedItem, setSelectedItem] = useState({});
   const [loading, setLoading] = useState(true);
 
+  // selectors
+  const currentCountry = useSelector((state) => state.user.country);
+
   useEffect(() => {
+    setSelectedItem(currentCountry);
     loadData();
   }, []);
 
@@ -78,6 +85,7 @@ const Country = () => {
                         active={item.id === selectedItem.id}
                         onClick={() => {
                           setSelectedItem(item);
+                          store.dispatch(userChanged({ country: item }));
                           setValue("");
                         }}
                       >

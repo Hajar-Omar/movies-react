@@ -5,10 +5,15 @@ import Button from "react-bootstrap/Button";
 import * as formik from "formik";
 import * as yup from "yup";
 import store from "../../+state/store";
+import { useSelector } from "react-redux";
+import { userChanged } from "../../+state/actions";
 
 const Info = () => {
   const { Formik } = formik;
   const [photo, setPhoto] = useState();
+
+  // selectors
+  const currentUser = useSelector((state) => state.user); // Accessing current Redux state, instead of store.getState().moviesType
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -21,7 +26,8 @@ const Info = () => {
   });
 
   const onChange = (e) => {
-    if (e.target.name === "photo") {
+    console.log(e.target.name);
+    if (e.target.name === "pic") {
       const reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = () => {
@@ -30,23 +36,23 @@ const Info = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    console.log(e);
+  const onSubmit = (e) => {
+    store.dispatch(userChanged({ ...e, photo }));
   };
 
   return (
     <>
       <Formik
         validationSchema={schema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         initialValues={{
-          firstName: "Hajar",
-          lastName: "Omar",
-          email: "hajaromar280@gmail.com",
-          bio: "",
-          photo: "",
-          color: "#00fffb",
-          gender: "female",
+          firstName: currentUser.firstName,
+          lastName: currentUser.lastName,
+          email: currentUser.email,
+          bio: currentUser.bio,
+          pic: "",
+          color: currentUser.color,
+          gender: currentUser.gender,
         }}
       >
         {({ handleSubmit, handleChange, values, touched, errors }) => (
@@ -137,7 +143,7 @@ const Info = () => {
                 <Form.Group>
                   <Form.Label>Set your profile photo</Form.Label>
                   <Form.Control
-                    name="photo"
+                    name="pic"
                     type="file"
                     value={values.pic}
                     onInput={onChange}
@@ -147,11 +153,13 @@ const Info = () => {
                 </Form.Group>
                 <img
                   src={
+                    currentUser.photo ??
                     photo ??
                     "https://placehold.co/400/grey/white?font=lato&text=photo"
                   }
                   className="img-top"
                   width="80"
+                  height="80"
                   alt="..."
                 />
               </div>
@@ -170,7 +178,13 @@ const Info = () => {
                 />
               </div>
             </div>
-            <Button type="submit" className="btn btn-success">
+            <Button
+              type="submit"
+              onClick={() => {
+                onSubmit(values);
+              }}
+              className="btn btn-success"
+            >
               Save Profile
             </Button>
           </Form>

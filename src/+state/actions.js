@@ -8,6 +8,10 @@ export const selectedMovieChanged = (selectedMovie) => {
   return { type: actions.SELECTED_MOVIE_CHANGED, payload: { selectedMovie } };
 };
 
-export const serverError = (error)=>{
-  return { type: actions.SERVER_ERROR, payload: {error}}
-}
+export const serverError = (error) => {
+  return { type: actions.SERVER_ERROR, payload: { error } };
+};
+
+export const userChanged = (user) => {
+  return { type: actions.USER_CHANGED, payload: { user } };
+};
