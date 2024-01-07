@@ -10,13 +10,13 @@ function Prefrences() {
     <>
       <h1>Prefrences show all state data</h1>
       <div className="row mx-0 d-flex">
-        <div className="col-12 col-lg-6 text-left">
-          <Coffee />
-          <Country />
-        </div>
-        <div className="col-12 col-lg-6 text-left">
+        <div className="col-12 col-lg-6">
           <Info />
           <Notes />
+        </div>
+        <div className="col-12 col-lg-6">
+          <Coffee />
+          <Country />
         </div>
       </div>
       <div className="d-flex justify-content-end my-5 w-100">

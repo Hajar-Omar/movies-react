@@ -46,7 +46,7 @@ function Coffee() {
       {loading ? (
         <Spinner animation="grow" />
       ) : (
-        <Card className="my-3">
+        <Card className="mb-3">
           <Card.Body>
             <Card.Title>
               <ButtonGroup aria-label="Basic example">
@@ -73,7 +73,7 @@ function Coffee() {
             <Carousel>
               {coffees.length &&
                 coffees.map((item) => (
-                  <Carousel.Item key={item.id} interval={100000}>
+                  <Carousel.Item key={item.id} interval={2000}>
                     <img
                       className="w-100"
                       height={500}

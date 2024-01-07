@@ -21,7 +21,7 @@ function Jokes() {
         {data.length &&
           data.map((item, i) => (
             <div className="col-12 col-lg-6" key={i}>
-              <Accordion>
+              <Accordion defaultActiveKey={0} alwaysOpen={false}>
                 <Accordion.Item eventKey={i}>
                   <Accordion.Header> {item.setup} &#129300;</Accordion.Header>
                   <Accordion.Body>{item.punchline} &#128514;</Accordion.Body>

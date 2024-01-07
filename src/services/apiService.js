@@ -1,3 +1,6 @@
+import { serverError } from "../+state/actions";
+import store from "../+state/store";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const apiService = async (endpoint, method = "GET", body = null) => {
@@ -22,7 +25,8 @@ const apiService = async (endpoint, method = "GET", body = null) => {
     return await response.json();
   } catch (error) {
     // Handle errors (logging, displaying error messages, etc.)
-    console.error("Error:", error);
+    store.dispatch(serverError({ show: true, message: error.message }));
+    console.error("Error:", error.message);
     throw error; // Rethrow the error for the caller to handle
   }
 };

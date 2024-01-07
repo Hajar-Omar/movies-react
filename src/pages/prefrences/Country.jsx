@@ -51,9 +51,11 @@ const Country = () => {
         <Card>
           <Card.Body>
             <Card.Title>
-              <label htmlFor="country">Select your country</label>
+              <label htmlFor="country" className="mb-3">
+                Select your country
+              </label>
               <Dropdown>
-                <Dropdown.Toggle id="country" className="btn btn-light w-100">
+                <Dropdown.Toggle id="country" className="btn btn-dark w-100">
                   {selectedItem.name ? (
                     <CountryItem item={selectedItem} />
                   ) : (
@@ -96,7 +98,7 @@ const Country = () => {
             {selectedItem.name && (
               <>
                 <h5>Facts about {<CountryItem item={selectedItem} />}:</h5>
-                <table className="table table-striped table-hover">
+                <table className="table table-striped table-hover mb-0">
                   <tbody>
                     <tr>
                       <th scope="row">Capital</th>
