@@ -8,6 +8,10 @@ export const selectedMovieChanged = (selectedMovie) => {
   return { type: actions.SELECTED_MOVIE_CHANGED, payload: { selectedMovie } };
 };
 
+export const favoriteMovieChanged = (favMovie) => {
+  return { type: actions.FAVORITE_MOVIE_CHANGED, payload: { favMovie } };
+};
+
 export const serverError = (error) => {
   return { type: actions.SERVER_ERROR, payload: { error } };
 };

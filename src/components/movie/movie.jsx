@@ -1,31 +1,33 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./movie.css";
 import { useSelector } from "react-redux";
-import store from '../../+state/store'
-import { selectedMovieChanged } from "../../+state/actions";
+import store from "../../+state/store";
+import {
+  favoriteMovieChanged,
+  selectedMovieChanged,
+} from "../../+state/actions";
 //import { useContext } from "react";
 //import { TypeContext } from "../../shared/context";
 
-const Movie = ({ movie, cols= 'col-md-6 col-lg-4 col-xl-3' }) => {
+const Movie = ({ movie, cols = "col-md-6 col-lg-4 col-xl-3" }) => {
   const defaultImgSrc = "https://placehold.co/400x600";
   const navigate = useNavigate();
+  const location = useLocation();
   //const type = useContext(TypeContext);
 
   // selectors
   const currentMoviesType = useSelector((state) => state.moviesType); // Accessing current Redux state, instead of store.getState().moviesType
 
-  const addToCart = (movie) => {
-    console.log(movie);
-  };
-
   const handleNaviagte = (id) => {
-    store.dispatch(selectedMovieChanged(movie))
+    store.dispatch(selectedMovieChanged(movie));
     navigate(`/details/${currentMoviesType}/${id}`);
   };
 
   return (
-    <div className={`col-12 ${cols} d-flex flex-column justify-content-between px-3 my-3`}>
-      <div>
+    <div
+      className={`col-12 ${cols} d-flex flex-column justify-content-between px-3 my-3`}
+    >
+      <div className="text-center d-flex flex-column">
         <h2>{movie.title}</h2>
         <img
           src={movie.posterURL}
@@ -37,9 +39,17 @@ const Movie = ({ movie, cols= 'col-md-6 col-lg-4 col-xl-3' }) => {
           title={movie.title}
           onClick={() => handleNaviagte(movie.imdbId)}
         />
-        <span className="">{currentMoviesType}</span>
+        <span>{currentMoviesType}</span>
       </div>
-      <button onClick={() => addToCart(movie)}>Add to Favourite</button>
+      {location.pathname.includes("details") ? (
+        <button className="mt-3 btn btn-warning text-white" onClick={() => store.dispatch(favoriteMovieChanged(movie))}>
+          Mark as My Favorite
+        </button>
+      ) : (
+        <button onClick={() => handleNaviagte(movie.imdbId)}>
+          Check Details
+        </button>
+      )}
     </div>
   );
 };

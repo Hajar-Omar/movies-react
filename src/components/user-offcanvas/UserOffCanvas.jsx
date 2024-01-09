@@ -1,11 +1,13 @@
 import React from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const UserOffCanvas = ({ show, handleClose }) => {
   // selectors
   const currentUser = useSelector((state) => state.user);
   const currentNotes = useSelector((state) => state.notes);
+  const currentFavMovie = useSelector((state) => state.favMovie);
 
   return (
     <Offcanvas
@@ -75,6 +77,12 @@ const UserOffCanvas = ({ show, handleClose }) => {
                   <td>{currentUser.coffee.title ?? "-"}</td>
                 </tr>
               )}
+               {currentFavMovie.title && (
+                <tr>
+                  <th scope="row">Fav Movie</th>
+                  <td>{currentFavMovie.title ?? "-"}</td>
+                </tr>
+              )}
               {currentNotes.length && (
                 <tr>
                   <th scope="row">Your Notes</th>
@@ -90,6 +98,15 @@ const UserOffCanvas = ({ show, handleClose }) => {
             </tbody>
           </table>
         )}
+        <div className="d-flex justify-content-end mt-3">
+          <Link
+            className="btn btn-success"
+            aria-current="page"
+            to="/prefrences"
+          >
+            Update my Profile
+          </Link>
+        </div>
       </Offcanvas.Body>
     </Offcanvas>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import apiService from "../../services/apiService";
 
 function Coding() {
   const [data, setData] = useState([]);
@@ -8,10 +9,7 @@ function Coding() {
   }, []);
 
   const loadData = async () => {
-    const req = await fetch(
-      `https://api.sampleapis.com/codingresources/codingResources`
-    );
-    const data = await req.json();
+    const data = await apiService(`codingresources/codingResources`);
     setData(data);
   };
 

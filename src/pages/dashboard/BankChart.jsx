@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import apiService from "../../services/apiService";
 
 ChartJS.register(
   CategoryScale,
@@ -68,11 +69,11 @@ function BankChart() {
   ];
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
 
   const getData = async () => {
-    const res = await fetch(`https://api.sampleapis.com/fakebank/accounts`);
-    const data = await res.json();
+    const data = await apiService(`fakebank/accounts`);
     let first10 = data.slice(70, 80);
     let labels = first10.map((e) => e.transactionDate);
     let debites = first10.map((e) => e.debit);

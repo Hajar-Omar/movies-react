@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "react-bootstrap/Card";
 import apiService from "../../services/apiService";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
@@ -30,6 +29,7 @@ function Coffee() {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line
   }, [type]);
 
   const loadData = async () => {

@@ -33,6 +33,7 @@ const MovieList = () => {
     // store.subscribe(() => {
     //   loadMovies();
     // });
+    // eslint-disable-next-line
   }, [currentMoviesType]);
 
   useEffect(() => {

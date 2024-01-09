@@ -6,6 +6,7 @@ const initialState = localStorage.getItem("state")
   : {
       moviesType: Types[0].name,
       selectedMovie: {},
+      favMovie: {},
       error: { show: false, message: "" },
       user: {
         coffee: {},
@@ -35,6 +36,12 @@ export const reducer = (state = initialState, { type, payload }) => {
 
     case actions.SELECTED_MOVIE_CHANGED: {
       const stat = { ...state, selectedMovie: payload.selectedMovie };
+      saveCache(stat);
+      return stat;
+    }
+
+    case actions.FAVORITE_MOVIE_CHANGED: {
+      const stat = { ...state, favMovie: payload.favMovie };
       saveCache(stat);
       return stat;
     }

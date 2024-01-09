@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroller";
 import "./games.css";
 import CustomSpinner from "../../components/spinner/Spinner"
+import apiService from "../../services/apiService";
 
 const Card = lazy(() => import("./Card"));
 
@@ -21,13 +22,11 @@ function Games() {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line
   }, [searchParams]);
 
   const loadData = async () => {
-    const req = await fetch(
-      `https://api.sampleapis.com/${searchParams.get("type")}/games`
-    );
-    const data = await req.json();
+    const data = await apiService(`${searchParams.get("type")}/games`);
     setGames(data);
     setVisibleData(data.slice(0, 6));
   };

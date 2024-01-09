@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
+import apiService from "../../services/apiService";
 
 function Jokes() {
   const [data, setData] = useState([]);
@@ -9,8 +10,7 @@ function Jokes() {
   }, []);
 
   const loadData = async () => {
-    const req = await fetch(`https://api.sampleapis.com/jokes/goodJokes`);
-    const data = await req.json();
+    const data = await apiService(`jokes/goodJokes`);
     setData(data);
   };
 

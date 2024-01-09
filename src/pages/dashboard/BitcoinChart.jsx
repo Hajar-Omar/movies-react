@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import apiService from "../../services/apiService";
 
 ChartJS.register(
   CategoryScale,
@@ -60,13 +61,11 @@ function BitcoinChart() {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
 
   const getData = async () => {
-    const res = await fetch(
-      `https://api.sampleapis.com/bitcoin/historical_prices`
-    );
-    const data = await res.json();
+    const data = await apiService(`bitcoin/historical_prices`);
     let first15 = data.slice(0, 15);
     let labels = first15.map((e) => e.Date);
     let prcies = first15.map((e) => e.Price);

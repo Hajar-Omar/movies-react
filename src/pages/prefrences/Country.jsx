@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import apiService from "../../services/apiService";
 import Spinner from "react-bootstrap/Spinner";
@@ -21,7 +20,7 @@ const Country = () => {
   useEffect(() => {
     setSelectedItem(currentCountry);
     loadData();
-  }, []);
+  }, [currentCountry]);
 
   useEffect(() => {
     setFilterdCountries(
@@ -29,7 +28,7 @@ const Country = () => {
         e.name.toLowerCase().includes(value.toLowerCase())
       )
     );
-  }, [value]);
+  }, [value, countries]);
 
   const loadData = async () => {
     try {
