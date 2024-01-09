@@ -28,32 +28,35 @@ function Coding() {
                     alt="..."
                   />
                 </a>
-                <div className="card-body">
-                  <h5 className="card-title mt-2">{item.description}</h5>
-                  <p className="card-text">
-                    Levels:{" "}
-                    <span class="badge text-bg-success">
-                      {item.levels.join(", ")}
-                    </span>
-                  </p>
-                  <p className="card-text">
-                    Topics:{" "}
-                    <span class="badge text-bg-warning">
-                      {item.topics.join(", ")}
-                    </span>
-                  </p>
-                  <div className="mb-4">
-                    {" "}
-                    <span class="badge text-bg-info">{item.types}</span>
+                <div className="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 className="card-title mt-2">{item.description}</h5>
+                    <p className="card-text">
+                      Levels:
+                      <span className="badge text-bg-success">
+                        {item.levels.join(", ")}
+                      </span>
+                    </p>
+                    <p className="card-text">
+                      Topics:
+                      <span className="badge text-bg-warning">
+                        {item.topics.join(", ")}
+                      </span>
+                    </p>
+                    <div className="mb-4">
+                      <span className="badge text-bg-info">{item.types}</span>
+                    </div>
                   </div>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-outline-dark"
-                  >
-                    Go There
-                  </a>
+                  <div className="text-center">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-outline-dark w-50"
+                    >
+                      Visit
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
