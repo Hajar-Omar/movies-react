@@ -3,23 +3,40 @@ import Country from "./Country";
 import Coffee from "./Coffee";
 import Info from "./Info";
 import Notes from "./Notes";
+import Card from "react-bootstrap/Card";
 
-function Prefrences() {
+const Prefrences = () => {
   return (
     <>
       <h2 className="mb-5">My Profile</h2>
-      <div className="row mx-0 d-flex">
+      <div className="row d-flex">
         <div className="col-12 col-lg-6">
-          <Info />
-          <Notes />
+          <Card>
+            <Card.Body>
+              <Info />
+            </Card.Body>
+          </Card>
+          <Card className="mt-4">
+            <Card.Body>
+              <Notes />
+            </Card.Body>
+          </Card>
         </div>
         <div className="col-12 col-lg-6">
-          <Coffee />
-          <Country />
+          <Card>
+            <Card.Body>
+              <Coffee />
+            </Card.Body>
+          </Card>
+          <Card className="mt-4">
+            <Card.Body>
+              <Country />
+            </Card.Body>
+          </Card>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Prefrences;

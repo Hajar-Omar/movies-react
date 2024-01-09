@@ -15,3 +15,7 @@ export const serverError = (error) => {
 export const userChanged = (user) => {
   return { type: actions.USER_CHANGED, payload: { user } };
 };
+
+export const notesSaved = (notes) => {
+  return { type: actions.NOTES_SAVED, payload: { notes } };
+};

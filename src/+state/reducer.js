@@ -18,6 +18,7 @@ const initialState = localStorage.getItem("state")
         color: "",
         gender: "",
       },
+      notes: [{ value: "" }]
     };
 
 const saveCache = (state = initialState) => {
@@ -43,6 +44,12 @@ export const reducer = (state = initialState, { type, payload }) => {
 
     case actions.USER_CHANGED: {
       const stat = { ...state, user: { ...state.user, ...payload.user } };
+      saveCache(stat);
+      return stat;
+    }
+
+    case actions.NOTES_SAVED: {
+      const stat = { ...state, notes: payload.notes };
       saveCache(stat);
       return stat;
     }

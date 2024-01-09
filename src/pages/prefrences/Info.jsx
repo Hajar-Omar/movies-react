@@ -57,7 +57,7 @@ const Info = () => {
       >
         {({ handleSubmit, handleChange, values, touched, errors }) => (
           <Form noValidate onSubmit={handleSubmit}>
-            <div className="row mx-0">
+            <div className="row">
               <div className="col-12 col-lg-6 mb-4">
                 <FloatingLabel label="First name">
                   <Form.Control
@@ -85,7 +85,7 @@ const Info = () => {
                 </FloatingLabel>
               </div>
 
-              <div className="col-12 mb-4">
+              <div className="col-12 my-4">
                 <FloatingLabel label="Email address">
                   <Form.Control
                     name="email"
@@ -114,30 +114,33 @@ const Info = () => {
                 </Form.Group>
               </div>
               <div className="col-12 col-lg-6 mb-4">
-                <Form.Check
-                  inline
-                  label="Male"
-                  name="gender"
-                  type="radio"
-                  id="male"
-                  onInput={onChange}
-                  onChange={handleChange}
-                  value="male"
-                  checked={values.gender === "male"}
-                  isValid={touched.gender && !errors.gender}
-                />
-                <Form.Check
-                  inline
-                  label="Female"
-                  name="gender"
-                  type="radio"
-                  id="female"
-                  onInput={onChange}
-                  onChange={handleChange}
-                  value="female"
-                  checked={values.gender === "female"}
-                  isValid={touched.gender && !errors.gender}
-                />
+                <Form.Label>Gender</Form.Label>
+                <Form.Group>
+                  <Form.Check
+                    inline
+                    label="Male"
+                    name="gender"
+                    type="radio"
+                    id="male"
+                    onInput={onChange}
+                    onChange={handleChange}
+                    value="male"
+                    checked={values.gender === "male"}
+                    isValid={touched.gender && !errors.gender}
+                  />
+                  <Form.Check
+                    inline
+                    label="Female"
+                    name="gender"
+                    type="radio"
+                    id="female"
+                    onInput={onChange}
+                    onChange={handleChange}
+                    value="female"
+                    checked={values.gender === "female"}
+                    isValid={touched.gender && !errors.gender}
+                  />
+                </Form.Group>
               </div>
               <div className="col-12 col-lg-6 mb-4">
                 <Form.Group>
@@ -178,15 +181,17 @@ const Info = () => {
                 />
               </div>
             </div>
-            <Button
-              type="submit"
-              onClick={() => {
-                onSubmit(values);
-              }}
-              className="btn btn-success"
-            >
-              Save Profile
-            </Button>
+            <div className="d-flex justify-content-end">
+              <Button
+                type="submit"
+                onClick={() => {
+                  onSubmit(values);
+                }}
+                className="btn btn-success"
+              >
+                Save Profile
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>

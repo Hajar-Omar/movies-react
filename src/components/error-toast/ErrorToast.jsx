@@ -20,9 +20,6 @@ const ErrorToast = () => {
         delay={3000}
         autohide
       >
-        {/* <Toast.Header>
-        <strong className="me-auto">Watch out! Something went wrong</strong>
-      </Toast.Header> */}
         <Toast.Body className="text-white">
           {currentServerError.message}
         </Toast.Body>

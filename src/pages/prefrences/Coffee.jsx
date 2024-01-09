@@ -52,67 +52,62 @@ function Coffee() {
       {loading ? (
         <Spinner animation="grow" />
       ) : (
-        <Card className="mb-3">
-          <Card.Body>
-            <Card.Title>
-              {currentCoffee && currentCoffee.title ? (
-                <h5 className="mb-3">
-                  {" "}
-                  Your Favoirate Coffee is {currentCoffee.title}
-                </h5>
-              ) : (
-                ""
-              )}
-              <ButtonGroup aria-label="coffee" className="w-100">
-                <Button
-                  active={type === "hot"}
-                  variant="secondary"
-                  onClick={() => {
-                    setType("hot");
-                  }}
-                >
-                  Hot Coffee
-                </Button>
-                <Button
-                  active={type === "iced"}
-                  variant="secondary"
-                  onClick={() => {
-                    setType("iced");
-                  }}
-                >
-                  Iced Coffee
-                </Button>
-              </ButtonGroup>
-            </Card.Title>
-            <Carousel>
-              {coffees.length &&
-                coffees.map((item) => (
-                  <Carousel.Item key={item.id} interval={2000}>
-                    <img
-                      className="w-100"
-                      height={500}
-                      src={item.image}
-                      alt={item.title}
-                    />
-                    <Carousel.Caption>
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
-                      <p>Ingredients: {item.ingredients.join(", ")}</p>
-                      <Button
-                        className="btn btn-warning text-white"
-                        onClick={() => {
-                          handleOpenModal();
-                          setSelectedItem(item);
-                        }}
-                      >
-                        Mark as My Favorite
-                      </Button>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                ))}
-            </Carousel>
-          </Card.Body>
-        </Card>
+        <>
+          {currentCoffee && currentCoffee.title ? (
+            <h5 className="my-3">
+              Your Favoirate Coffee is {currentCoffee.title}
+            </h5>
+          ) : (
+            ""
+          )}
+          <ButtonGroup aria-label="coffee" className="w-100">
+            <Button
+              active={type === "hot"}
+              variant="secondary"
+              onClick={() => {
+                setType("hot");
+              }}
+            >
+              Hot Coffee
+            </Button>
+            <Button
+              active={type === "iced"}
+              variant="secondary"
+              onClick={() => {
+                setType("iced");
+              }}
+            >
+              Iced Coffee
+            </Button>
+          </ButtonGroup>
+          <Carousel>
+            {coffees.length &&
+              coffees.map((item) => (
+                <Carousel.Item key={item.id} interval={2000}>
+                  <img
+                    className="w-100"
+                    height={500}
+                    src={item.image}
+                    alt={item.title}
+                  />
+                  <Carousel.Caption>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <p>Ingredients: {item.ingredients.join(", ")}</p>
+                    <Button
+                      className="btn btn-warning text-white"
+                      onClick={() => {
+                        handleOpenModal();
+                        setSelectedItem(item);
+                      }}
+                    >
+                      Mark as My Favorite
+                    </Button>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              ))}
+          </Carousel>
+        </>
       )}
     </>
   );
