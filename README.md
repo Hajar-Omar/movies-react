@@ -1,12 +1,12 @@
-# Movie List App
+# FUN ZONE App
 
-This is a simple React app that fetches movie data from an API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
+This is a ReactJS App for personal usage... that fetches movie data from an API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Simple movies list page using [sampleapis APIs](https://sampleapis.com/api-list/movies)
+Integrating with [sampleapis APIs](https://sampleapis.com/api-list/movies)
 
-![Movies List](https://i.ibb.co/5vhNtmZ/11.png)
+![Movies List](https://raw.githubusercontent.com/Hajar-Omar/movies-react/main/public/images/me.png)
 
 ## Getting Started
 
@@ -26,18 +26,69 @@ npm start
 
 The app will be available at http://localhost:3000.
 
-## Code Overview
+<!-- ## Code Overview
 
 The app consists of the following components:
 
 * `MovieList`: This is the main component of the app. It fetches the movie data from the API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
 * `Movie`: This component displays a single movie.
-* `Pagination`: This component displays the pagination controls.
+* `Pagination`: This component displays the pagination controls. -->
 
 ## Pages
+### `Dashboard`:
+
+The `Dashboard` component is the main component of the app. It fetches data for two main components:
+1- `BitcoinChart` Bitcoin Prices, explaining it with Bar Chart using [react-chartjs-2](https://react-chartjs-2.js.org/)
+2- `BankChart` Account Debits for fake bank, explaining it with Bar Chart using [react-chartjs-2](https://react-chartjs-2.js.org/)
+
+![Dashboard](https://i.ibb.co/FXBDmHf/dash.png)
+
+
+### `Profile`:
+
+The `Prefrences` component which you can set your own preferences and save it using [Redux](https://redux.js.org/) for State Management & localstorage as well for further browser cache.
+ 
+Preferences such as:
+1- favorite coffee from a carousel
+2- your country and some intresting facts about it
+3- personal data such as first name , last name, profile photo, bio, gender, email, favorite color
+4- notes or todos list using dynamic form
+
+![Profile](https://i.ibb.co/Xz0n5SL/profile.png)
+![Profile](https://i.ibb.co/GH8Y1p3/prof4.png)
+![Profile](https://i.ibb.co/25zgQ22/prof2.png)
+![Profile](https://i.ibb.co/kSgKbJz/prof3.png)
+
+
 ### `MovieList`:
 
-The `MovieList` component is the main component of the app. It fetches the movie data from the API and displays it in a grid. The user can filter the movies by type and search for movies by title. The app also includes pagination.
+The `MovieList` component which fetches the movie data from the API and displays it in a grid with pagination. The user can filter the movies by type and search for movies by title, you can check every movies details as well and add mark it as your favourite
+
+![MovieList](https://i.ibb.co/4NxSFYx/mov.png)
+![MovieList](https://i.ibb.co/bQQV9nC/mov2.png)
+![MovieList](https://i.ibb.co/pQ7y51s/mov3.png)
+
+
+### `Jokes`:
+
+The `Jokes` component which fetches some funny jokes data from the API and displays it in expandable cards
+
+![Jokes](https://i.ibb.co/HhpMW7P/la.png)
+
+
+## `Coding`:
+
+The `Coding` component which fetches some Coding tutorials data from the API and displays it in cards
+
+![Coding](https://i.ibb.co/m8KzBgb/co.png)
+
+
+## `Games`:
+
+The `Games` component which fetches some Games data with 3 different types (xbox, switch, play station) depending on query paramters from the API and displays it in cards and using [react-infinite-scroller](https://www.npmjs.com/package/react-infinite-scroller) for nice virtual scrolling
+
+![Games](https://i.ibb.co/5kpXb0j/game.png)
+
 
 
 ## Available Scripts

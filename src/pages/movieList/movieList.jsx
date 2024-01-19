@@ -63,7 +63,10 @@ const MovieList = () => {
   return (
     <>
       {/* <TypeContext.Provider value={type}> */}
-      <MovieType />
+      <div className="d-flex justify-content-center">
+         <MovieType />
+      </div>
+     
       <div className="container">
         <input
           className="form-control form-control my-5"

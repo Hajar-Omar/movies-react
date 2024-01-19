@@ -13,6 +13,7 @@ const Country = () => {
   const [filterdCountries, setFilterdCountries] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
   const [loading, setLoading] = useState(true);
+  // can use countryReducer instead
 
   // selectors
   const currentCountry = useSelector((state) => state.user.country);
