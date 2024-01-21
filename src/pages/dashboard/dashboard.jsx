@@ -1,6 +1,7 @@
 import React from "react";
 import BitcoinChart from "./BitcoinChart";
 import BankChart from "./BankChart";
+import TicTacToe from "./TicTacToe";
 
 function Dashboard() {
   return (
@@ -13,6 +14,7 @@ function Dashboard() {
           <BankChart />
         </div>
       </div>
+      <TicTacToe />
     </>
   );
 }
